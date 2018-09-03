@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>DUET Check pattern</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/w3.css" />
+    <link rel="stylesheet" href="css/site.css" />
+    
+    <link rel="stylesheet" href="css/input.css" />
+    <script src="js/app.js"></script>
+    <script src="js/site.js"></script>
+    <script src="js/show.js"></script>
+
+</head>
+<body>
+    <div id="frame" oncontextmenu="return false" onclick="window.opener.focus(); window.close();">
+        <div id="divuser" style="visibility:hidden"></div>
+        <div style="text-align:center;padding:20px"> Your design is loading...
+            <br /><br /><br/>After your design is loaded, you can scroll from left to right and from top to bottom.
+            <br />You can click on your design to close it.
+        </div>
+        <img id="DUETdesign" alt=""/>
+    </div>
+    <div id="errors"></div>
+   <script>initCheckDesign();</script>;
+</body>
+</html>

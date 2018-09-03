@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>DUET My Design</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/w3.css" />
+    <link rel="stylesheet" href="css/site.css" />
+
+    <link rel="stylesheet" href="css/input.css" />
+    <script src="js/app.js"></script>
+    <script src="js/site.js"></script>
+    <script src="js/proces.js"></script>
+    <script src="js/mydesigns.js"></script>
+    <script src="js/show.js"></script>
+</head>
+<body id="body"  onresize="document.location.reload();">
+    <!-- menu -->
+    <div class="w3-top">
+        <div class="w3-row menu">
+            <div id="divlogo" class="logo w3-col l2 m2"><a href="admin.html?admin"><img src="images/logo.png" alt="logo" width="50" height="50" /><span class="title">DUET</span></a></div>
+            <div class="w3-col l8 m8">
+                <div class="menuitem"><a href="index.html">Home</a></div>
+                <div class="menuitem"><a href="design.html">Designer</a></div>
+                <div class="menuitem"><a href="mydesigns.html">My Designs</a></div>
+                <div class="menuitem"><a href="shared.html">Shared Designs</a></div>
+                <div class="menuitem"><a href="myorders.html">My Orders</a></div>
+                <div class="menuitem"><a href="javascript:app.open('helpmyorder')">Help</a></div>
+            </div>
+
+            <div class="w3-col l2 m2 w3-dropdown-hover menuitemright">
+                <div class="w3-dropdown-content">
+                    <a href="index.html?register" id="member" class="w3-bar-item w3-button ">Register</a>
+                    <a href="index.html?changeregistration" class="w3-bar-item w3-button">Change Registration</a>
+                    <a href="index.html?unsubscribe" class="w3-bar-item w3-button">Unsubscribe</a>
+                    <a href="index.html?contact" class="w3-bar-item w3-button">Contact</a>
+                </div>
+                <button>Membership</button>
+            </div>
+        </div>
+    </div>
+    <!-- end menu -->
+    <!-- show -->
+    <div id="mydesign" class="topic" style="display: block;">
+        <div id="divuser" style="visibility:hidden"></div>
+        <div class="w3-row" style="width:100%;text-align:center">
+            <div class="w3-col l6 m6">
+                <div id="divframe" oncontextmenu="return false" style="text-align:center; width:100%">
+                    <div style="text-align:center;padding:20px"> Please, wait while your design is loading...</div>
+                </div>
+                <div id="footer">
+                    <br />&copy; 2018 - DUET
+                </div>
+            </div>
+            <div class="w3-col l1 m1" ><br /></div>
+            <div class="w3-col l5 m5">
+                <h1 id="designnr"></h1>
+                <div id="divinfo" style="text-align: left">This design is ... </div>
+                <div id="divbuttons" style="text-align:center; width:100% ;"></div>
+            </div>
+        </div>
+        
+    </div>
+
+       
+    <div id="alertbox" class="alert">
+        <span id="alertmessage"></span>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    </div>
+    <!-- end designer -->
+   <div id="errors"></div>
+    <script language="javascript">adesignstart()</script>
+</body>
+</html>

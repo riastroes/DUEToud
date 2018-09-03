@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAoNR7/XeH8EGzCU/AXc2T0QAAAAACAAAAAAAQZgAAAAEAACAAAADMcZuIhGQqhtVBP0TcyTwAH5RjW0z58zMQkPOCDuPIawAAAAAOgAAAAAIAACAAAAAth2FjU4+6yfAzoFSnRjRTqUKdTVtzmndBs2ZnYnECTIAAAAA1lPXxRtAyks5kBuepWyLyRGon8drYBFGaeHIfiLdBtMOfoCydtIFhaNVqKHZIDiRn5lQiW8HHVSFUl0l/n+/PDU4mkvJd3wuzAS4ZJJnWCG77JSIJZzerf/Q9aPZSPj0GgtGZpc8z1892q7a+gCepoJ99gSZYjbPbrw/oQjpxvkAAAAADQco3LCoXHiAKFWu/gFjrY2r2uIpYvnlpCMxcjh1o+JQHgStT5d3Z+CFeE7Fmuu52XGjEC0vcM7dqqDuGuOuM</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DUETContext">
+      <Value>Data Source=DUET.db</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

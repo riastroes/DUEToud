@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>DUET Designer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/w3.css" />
+    <link rel="stylesheet" href="css/input.css" />
+    <link rel="stylesheet" href="css/site.css" />
+    <link rel="stylesheet" href="css/inspiration.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="js/app.js"></script>
+    <script src="js/site.js"></script>
+    <script src="js/designer.js"></script>
+    <script src="js/mydesigns.js"></script>
+    <script src="js/design.js"></script>
+    <script src="js/palette.js"></script>
+    <script src="js/proces.js"></script>
+    <script src="js/inspiration.js"></script>
+    <script src="js/stamp.js"></script>
+    <script src="js/color.js"></script>
+    <script src="js/show.js"></script>
+</head>
+<body id="body" onresize="resizeDesigner();">
+    <!-- menu -->
+
+    <div class="w3-top"></div>
+    <div class="w3-row menu" id="divmenu">
+        <div id="divlogo" class="logo w3-col l2 m2"><a href="admin.html?admin"><img src="images/logo.png" alt="logo" width="50" height="50" /><span class="title">DUET</span></a></div>
+        <div class="w3-col l8 m8">
+            <div class="menuitem"><a href="index.html">Home</a></div>
+            <div class="menuitem"><a href="mydesigns.html">My Designs</a></div>
+            <div class="menuitem"><a href="myorders.html">My Orders</a></div>
+            <div class="menuitem"><a href="shared.html">Shared Designs</a></div>
+            <div class="menuitem"><a href="javascript:app.open('helpdesign')">Help</a></div>
+        </div>
+        <div class="w3-col l2 m2 w3-dropdown-hover menuitemright">
+            <div class="w3-dropdown-content">
+                <a href="index.html?register" id="member" class="w3-bar-item w3-button ">Register</a>
+                <a href="index.html?changeregistration" class="w3-bar-item w3-button">Change Registration</a>
+                <a href="index.html?unsubscribe" class="w3-bar-item w3-button">Unsubscribe</a>
+                <a href="index.html?contact" class="w3-bar-item w3-button">Contact</a>
+            </div>
+            <button>Membership</button>
+        </div>
+
+    </div>
+     <!-- end menu -->
+    <!-- welcome -->
+    <div id="root">
+        <div id="welcome" class="topic" style="display: block;">
+            <div class="w3-row">
+                <div class="w3-twothird"  id="divwelcome">
+                    <h2>DUET is a patterndesign tool.</h2>
+                    <p>
+                        <div id="divuser"></div>
+                        You can create beautiful proffesional patterns with DUET.<br />
+                        We will inspire you with some of the beautiful screenprinted designs of Jolanta Izabela Pawlak.<br />
+                        Other DUET-members will inspire you with their shared designs.<br/> 
+                        We invite you to share with us your best designs.<br/>
+                        Start making your own design or click on the shared designs to order fabric, samples, photo's.
+
+                    </p>
+                </div>
+                <div class="w3-third" id="divnews">
+                    <h1>DUET News</h1>
+                    <p>Our DUET design tool is ready for you!</p>
+                    <button class="button" id="btnStartDesign" onclick="startDesigner();">Start Designing</button>
+                </div>
+            </div>
+            <div id="shareddesigns">
+            </div>
+            <div id="footer"><br/>&copy; 2018 - DUET</div>
+        </div>
+        <!-- designer -->
+        <div id="divdesigner" class="topic" style="display: none;">
+
+            <!-- design -->
+            <div id="paneldesign">
+                <div id="divtitle" class="w3-row">
+                    <div class="w3-third"><a id="top"></a><span id="mydesigntitle">My Design:</span></div>
+                    <div class="w3-twothird" id="divdesignsize"><label class="llabel">Design Size:</label><input id="indesignwidth" type="range" min="1" max="50" step="1" value="20" onchange="app.design.ChangeDesignSize()" /> x <input id="indesignheight" type="range" min="1" max="50" step="1" value="20" onchange="app.design.ChangeDesignSize()" /><label id="lbldesignsize" class="rlabel">20 x 20 cm</label></div>
+                </div>
+
+                <button class="button" id="btnrulers" onclick="app.design.rulers();">On</button>
+                <canvas id="canvashorruler"></canvas>
+                <canvas id="canvasbackground"></canvas>
+                <canvas id="canvasdesign"></canvas>
+                <canvas id="canvastop"></canvas>
+                <canvas id="canvasverruler" onmouseout="app.design.cleartop()" onclick="app.design.xy();" onmousemove="app.design.cursor();"></canvas>
+
+            </div>
+            <!--  -->
+            <!-- settings -->
+            <div id="panelsettings" onclick="moveSettings()">
+                <h3 id="mysettings">Settings for </h3>
+                <h3>Background</h3>
+                <div id="divpalette">
+                    <canvas id="canvaspalette" onclick="app.palette.setBgColor()"></canvas>
+                </div>
+                <h3>My Stamp</h3>
+                <img id="stamp" src="images/stamp1.png" alt="stamp" width="100" height="100" />
+                <div id="divstampshape" class="w3-content w3-display-container" onclick="app.stamp.nextShape(0);" style="text-align:center; float:right;">
+                    <img class="stampshapes" src="images/stamp1.png">
+                    <img class="stampshapes" src="images/stamp2.png">
+                    <img class="stampshapes" src="images/stamp3.png">
+                    <img class="stampshapes" src="images/stamp4.png">
+                    <img class="stampshapes" src="images/stamp5.png">
+                    <img class="stampshapes" src="images/stamp6.png">
+                    <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:140%">
+                        <div class="w3-left w3-hover-text-khaki">&#10094;</div>
+                        <div class="w3-right w3-hover-text-khaki">&#10095;</div>
+                    </div>
+                </div>
+                <br /><br />
+                <div id="divstampsize">
+                    <label class="llabel" id="lblstampsize"></label>
+                    <input type="range" min="10" max="200" step="10" value="130" id="instampsize" onclick="stop(event);" onchange="app.stamp.setSize();" /><br />
+                </div>
+                <div id="divstamptype">
+                    <label class=llabel>copy stamp</label><input type="radio" name="stamptype" checked onclick="app.stamp.setType()" /><br />
+                    <label class=llabel>color stamp</label><input type="radio" name="stamptype" onclick="app.stamp.setType()" /><br />
+                    <label class=llabel>lightness stamp</label><input type="radio" name="stamptype" onclick="app.stamp.setType()" /><br />
+                </div>
+                <div id="divbehaviour">
+                    <h3>Stamp Behaviour</h3>
+                    <label class="llabel" id="lblrepeathor"></label>
+                    <input type="range" min="1" max="10" step="1" value="1" id="inrepeathor" onclick="stop(event);" onchange="app.stamp.setRepeatHor();" /><br />
+                    <label class="llabel" id="lblrepeatver"></label>
+                    <input type="range" min="1" max="10" step="1" value="1" id="inrepeatver" onclick="stop(event);" onchange="app.stamp.setRepeatVer();" /><br />
+                    <label class="llabel" id="lblrepeatdist"></label>
+                    <input type="range" min="0.1" max="1" step="0.1" value="1" id="inrepeatdist" onclick="stop(event);" onchange="app.stamp.setRepeatDist();" /><br />
+                    <div id="divstampscale">
+                        <label class="llabel" id="lblstampscale"></label>
+                        <input type="range" min="0.1" max="3" step="0.1" value="1" id="instampscale" onclick="stop(event);" onchange="app.stamp.setScale();" /><br />
+                    </div>
+                    <div id="divstamprotate">
+                        <label class="llabel" id="lblstamprotate"></label>
+                        <input type="range" min="0" max="360" step="5" value="0" id="instamprotate" onclick="stop(event);" onchange="app.stamp.setRotate();" /><br />
+                    </div>
+                    <label class="flabel" id="lblbrushstamp">Use stamp as brush </label>
+                    <input type="checkbox" id="asbrush" onclick="app.stamp.checkAsBrush()" />
+                </div>
+                <div id="divbuttons">
+                    <button class="button" id="btndesign" onclick="app.proces.xy();moveSettings();">Designer</button><br />
+                    <button class="button30no" id="btnundodesign" onclick="app.proces.undo();">Undo</button>
+                    <button class="button30" id="btnnewdesign" onclick="app.design.create();">New</button>
+                    <button class="button30" id="btndeletedesign" onclick="app.design.delete();">Delete</button><br />
+                    <button class="button50" id="btnsavedesign" onclick="app.design.save();">Save Design</button>
+                    <button class="button50" id="btnreadydesign" onclick="app.design.ready();">Ready</button>
+                </div>
+            </div>
+            <!-- inspiration -->
+            <div id="panelinspiration">
+                <h2>Inspiration <i id="inspirationlock" class="material-icons" style="font-size: 32px" onclick="app.inspiration.clickLock()">lock_open</i></h2>
+                <div id="divinspiration">
+                    <div id="inspiration" class="w3-row w3-display-container">
+                        <img id="img1" alt="GDansk" class="slides" src="images/img1.jpg" style="width:100%;height:100%;" onclick="app.inspiration.xy(1)" oncontextmenu="return false">
+                        <img id="img2" alt="GDinia" class="slides" src="images/img2.jpg" style="width:100%;height:100%;" onclick="app.inspiration.xy(2)" oncontextmenu="return false">
+                        <img id="img3" alt="Chicago" class="slides" src="images/img3.jpg" style="width:100%;height:100%;" onclick="app.inspiration.xy(3)" oncontextmenu="return false">
+                        <img id="img4" alt="Miami" class="slides" src="images/img4.jpg" style="width: 100%; height: 100%;" onclick="app.inspiration.xy(4)" oncontextmenu="return false">
+                        <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-topmiddle" style="width:100%">
+                            <div class="w3-left w3-hover-text-khaki" onclick="app.inspiration.showNext(-1)">&#10094;</div>
+                            <div class="w3-right w3-hover-text-khaki" onclick="app.inspiration.showNext(1)">&#10095;</div>
+                            <span class="w3-badge dots w3-border w3-transparent w3-hover-white" onclick="app.inspiration.showDot(1)"></span>
+                            <span class="w3-badge dots w3-border w3-transparent w3-hover-white" onclick="app.inspiration.showDot(2)"></span>
+                            <span class="w3-badge dots w3-border w3-transparent w3-hover-white" onclick="app.inspiration.showDot(3)"></span>
+                            <span class="w3-badge dots w3-border w3-transparent w3-hover-white" onclick="app.inspiration.showDot(4)"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div><p>&copy; 2018 - DUET</p></div>
+            <div id="errors"></div>
+        </div>
+
+        <div id="helpdesign" class="help" style="display:none">
+            <i id="lefthelp" onclick="app.left('helpdesign')" class="material-icons" style="font-size: 32px">keyboard_arrow_left</i>
+            <i id="righthelp" onclick="app.right('helpdesign')" class="material-icons" style="font-size: 32px">keyboard_arrow_right</i>
+            <i id="closehelp" onclick="app.close('helpdesign')" class="material-icons" style="font-size: 32px">close</i>
+            <h3>Inspiration</h3>
+            <p>
+                Get inspired bij these beautiful textures. In this tool you can use them by clicking on a area of the print.<br />
+                So you can select your backgroundcolor for your design and ﬁll your stamp with textures and colors.<br />
+                Click on the lock to stop the carousel-function of the inspiration area.  Click the lock again to restart the carousel-function.
+
+            </p>
+            <h3>Settings</h3>
+            <p>
+                On this panel you can ﬁnd all the functions you can use to create your own design The panel can move to the left- and rightside of your screen.<br />
+                Opening the inspiration area or the designer area.<br />
+            </p>
+            <ul>
+                <li><strong>Button Designer/Inspiration</strong> click open the designer area. </li>
+                <li><strong>Button Inspiration/Designer</strong> click open the inspiration area.</li>
+            </ul>
+            <p>Tip! You can also click anywhere on the panel and it will move to the other side.</p>
+            <h3>Background</h3>
+            <p>
+                Here is your pallet for your background colors. Fill this pallet bij clicking on the inspiration prints. you will start with a white background.<br />
+                Click on the pallet to set the backgroundcolor of your design.<br /> Click om the basket to empty your pallet.<br />
+            </p>
+            <h3>My Stamp</h3>
+            <p>
+                On the left side you see your stamp. This is the tool you will use to create, stamping your own design on the canvas in the designer area.<br />
+                You can change this stamp in many ways. On the right side you can select the shape of your stamp.<br />
+                There are 6 different stamp shapes. If you click on the inspiration prints you can ﬁll your stamp with colors and textures.<br />
+                There are 3 different stamp types: <br />
+                <ul>
+                    <li>copy stamp, 1 to 1 copy of a small area of your inspiration print.</li>
+                    <li>color stamp, only a copy of one color you click on in the inspiration print.</li>
+                    <li>lightness stamp, all the colors with the same lightness in a area you click on in the inspiration print. This can be light or dark colors.</li>
+                </ul>
+            </p>
+            <h3>Stamp Behavour</h3>
+
+            <h4>Repeat horizontal 1 to 10 times</h4>
+            <p>
+                If you stamp on the canvas your stamp will be repeated 1 to 10 times over the full with of your pattern or in a part of your canvas depending of the repeat distance.
+            </p>
+            <h4>Repeat vertical 1 to 10 times</h4>
+            <p>
+                If you stamp on the canvas your stamp will be repeated 1 to 10 times over the full with of your pattern or in a part of your canvas depending of the repeat distance.
+            </p>
+            <h4>
+                Repeat distance
+            </h4>
+            <p>If repeat distance is set to 100 % the repeat stamp functions will affect the full width or height of the canvas. If it you set to 50%, it will affect half of your canvas</p>
+            <h4>
+                Scale
+            </h4>
+            <p>
+                Scale the stamp, smaller or bigger. If you scale up you will lose some sharpness in your design.
+            </p>
+            <h4>
+                Rotate
+            </h4>
+            <p>
+                Rotate your stamp.
+            </p>
+            <h4>
+                Use your stamp as a brush
+            </h4> <p>
+                A difficult but fun option to play with. Hold your right mousebutton down when you move your stamp over the canvas.
+            </p>
+
+            <h3>Buttons</h3>
+            <ul>
+                <li><strong>Designer / Inspiration button</strong>, move the settingspanel to the left or right.</li>
+                <li><strong>New</strong>, start wih a new design.</li>
+                <li><strong>Delete</strong>, clear your canvas and start over.</li>
+                <li> <strong>Save Design</strong>, save your design and wait until it is saved.</li>
+            </ul>
+        </div>
+        <div id="alertbox" class="alert">
+            <span id="alertmessage"></span>
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        </div>
+        <!-- end designer -->
+
+    </div>
+
+
+    <script language="javascript">designstart();
+initShared();</script>   
+</body>
+</html>

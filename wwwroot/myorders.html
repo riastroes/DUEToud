@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>DUET My Orders</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/w3.css" />
+    <link rel="stylesheet" href="css/site.css" />
+
+    <link rel="stylesheet" href="css/input.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="js/app.js"></script>
+    <script src="js/site.js"></script>
+    <script src="js/order.js"></script>
+    <script src="js/myorders.js"></script>
+
+</head>
+<body onresize="document.location.reload();">
+    <!-- menu -->
+    <div class="w3-top"></div>
+        <div class="w3-row menu">
+            <div class="logo w3-col l2 m2"><a href="admin.html?admin"><img src="images/logo.png" alt="logo" width="50" height="50" /><span class="title">DUET</span></a></div>
+            <div class="w3-col l8 m8">
+                <div class="menuitem"><a href="index.html">Home</a></div>
+                <div class="menuitem"><a href="design.html">Designer</a></div>
+                <div class="menuitem"><a href="mydesigns.html">My Designs</a></div>
+                <div class="menuitem"><a href="shared.html">Shared Designs</a></div>
+                <div class="menuitem"><a href="javascript:app.open('helpmyorders')">Help</a></div>
+            </div>
+
+            <div class="w3-col l2 m2 w3-dropdown-hover menuitemright">
+                <div class="w3-dropdown-content">
+                    <a href="index.html?register" id="member" class="w3-bar-item w3-button ">Register</a>
+                    <a href="index.html?changeregistration" class="w3-bar-item w3-button">Change Registration</a>
+                    <a href="index.html?unsubscribe" class="w3-bar-item w3-button">Unsubscribe</a>
+                    <a href="index.html?contact" class="w3-bar-item w3-button">Contact</a>
+                </div>
+                <button>Membership</button>
+            </div>
+        </div>
+    
+   
+    <!-- end menu -->
+    <!-- show -->
+
+    <div id="root">
+        <h1>My Orders</h1>
+        <div id="divmyorders" class="w3-row">
+            <div id="myorders" class="w3-col m8 l9">
+
+            </div>
+            <div id="show" class="w3-col m4 l3">
+                <div id="divuser"></div>
+                <p>You ordered one or more a professional patterns. We will take care of your orders as best as we can and notify you when we are ready to send it to you or when it is ready to pick it up.<br />
+                <p>The estimated delivery date is a week after your order date.</p>
+                <p>We love to meet you in Jolanta's ArtShop at Haarlemmerstraat 100 in AMSTERDAM. </p>
+                <p>If you ordered fabric, please send us a foto of what you create with this fabric.</p>
+                <p>JOIN US on Facebook or Instagram (#DUET)</p>
+            </div>
+        </div>
+        <div id="helpmyorders" class="help" style="display:none">
+            <i id="lefthelp" onclick="app.left('helpmyorders')" class="material-icons" style="font-size: 32px">keyboard_arrow_left</i>
+            <i id="righthelp" onclick="app.right('helpmyorders')" class="material-icons" style="font-size: 32px">keyboard_arrow_right</i>
+            <i id="closehelp" onclick="app.close('helpmyorders')" class="material-icons" style="font-size: 32px">close</i>
+            <h3>My Orders</h3>
+        </div>
+        <div id="errors"></div>
+        <footer>
+            <p>&copy; 2018 - DUET</p>
+        </footer>
+    </div>
+    <script language="javascript">
+        myordersstart();
+    </script>
+</body>
+</html>

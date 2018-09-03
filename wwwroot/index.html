@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>DUET</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/w3.css" />
+    <link rel="stylesheet" href="css/input.css" />
+    <link rel="stylesheet" href="css/site.css" />
+  
+    <link rel="stylesheet" href="css/inspiration.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="js/app.js"></script>
+    <script src="js/site.js"></script>
+    <script src="js/proces.js"></script>
+
+    <script src="js/inspiration.js"></script>
+</head>
+<body onresize="document.location.reload();">
+    <!-- menu -->
+    <div class="w3-top"> </div>
+    <div class="w3-row menu">
+        <div id="divlogo" class="logo w3-col l2 m2"><a href="admin.html?admin"><img src="images/logo.png" alt="logo" width="50" height="50" /><span class="title">DUET</span></a></div>
+        <div class="w3-col l8 m8">
+            <div class="menuitem"><a href="index.html">Home</a></div>
+            <div class="menuitem"><a href="index.html?contact">Contact</a></div>
+        </div>
+
+        <div class="w3-col l2 m2 w3-dropdown-hover menuitemright">
+            <div class="w3-dropdown-content">
+                <a href="index.html?register" id="member" class="w3-bar-item w3-button ">Register</a>
+                <a href="index.html?changeregistration" class="w3-bar-item w3-button">Change Registration</a>
+                <a href="index.html?unsubscribe" class="w3-bar-item w3-button">Unsubscribe</a>
+                <a href="index.html?contact" class="w3-bar-item w3-button">Contact</a>
+            </div>
+            <button>Membership</button>
+        </div>
+    </div>
+   
+   
+
+    <!-- login -->
+    <div id="root" class="container">
+        
+        
+        <!-- login  -->
+        <div id="login" class="topic">
+            <h1>WELCOME @ DUET</h1>
+            <div class="w3-row">
+                <div class="w3-col l6 m6">
+                    <h3>DUET is a patterndesign tool.</h3>
+                    <p>
+                        You can create beautiful proffesional patterns with DUET.<br />
+                        We will inspire you with some of the beautiful screenprinted designs of Jolanta Izabela Pawlak.
+                    </p>
+                    <p>
+                        Take a look at these beautiful scarfs. These are unique screen-prints on fabric. If you can enjoy the beautiful floral- and coral-textures, then we invite you to explore this site a little bit more. Jolanta was inspired by the beautiful textures of the corals in the ocean nearby Curacao. We hope you will get inspired by these scarfs and design your own patterns with a digital stamp technique in this tool, created by Ria Stroes, creative coder.
+                    </p>
+                    <p><strong>In this app you will explore these beautiful textures and use them for your own designs.</strong></p>
+                    <p>JOIN US on Facebook or Instagram (#DUET)</p>
+                </div>
+                <div class="w3-col l1 m1"><br/></div>
+                <div class="w3-col l5 m5" id="divlogin">
+                    <p id="info">If you are new @ DUET,<br /> first goto Membership (top-right-corner) and register.</p>
+                    <label class="llabel">Email:</label><input type="text" id="loginemail" required /><br />
+                    <label class="llabel">Password:</label><input type="password" id="loginpassword" required /><br /><br />
+                    <button class="button" id="btnlogin" onclick="login();">Login</button>
+                    <div class="error" id="resultlogin"></div>
+                </div>
+            </div>
+        </div>
+        <!-- register -->
+        <div id="register" class="topic" style="display:none;">
+            <div class="w3-row">
+                <div class="w3-half" id="divform">
+                    <label class="llabel"></label>* required fields<br />
+                    <label class="llabel">Name:</label><input type="text" id="registername" required />*<br />
+                    <label class="llabel">Email:</label><input type="text" id="registeremail" required />*<br />
+                    <label class="llabel">Password:</label><input type="password" id="registerpassword" required />*<br /><br />
+                    <hr />
+                    <label class="llabel">Phone:</label><input type="text" id="registerphone" /><br />
+                    <label class="llabel">Address:</label><input type="text" id="registeraddress" /><br />
+                    <label class="llabel">Zipcode:</label><input type="text" id="registerzipcode" /><br />
+                    <label class="llabel">City:</label><input type="text" id="registercity" /><br />
+                    <label class="llabel">Country:</label><input type="text" id="registercountry" /><br /><br />
+
+                    <button class="button" id="btnregister" onclick="registerMemberUI();">Register</button>
+                    <div id="registrationerrors"></div>
+                </div>
+                <div class="w3-half" id="divinfo">
+                    <h1>DUET Membership</h1>
+                    <p>We ask you to register, so we can save your designs. We need to identify you when you visit our site the next time.</p>
+                    <p>
+                        We will save your designs in a big-format, so they can be used for printing. Your designs will be created on the server
+                        in a maximum size of 48 x 48 cm. Every design you create is a pattern that can be repeated horizontal and vertical.
+                    </p>
+                    <hr />
+                    <p>If you want to order your designs on paper or fabric, you have to fill in all the fields in the form.</p>
+                    <p>You will be the owner of these designs and you can check, show, share and order these designs.</p>
+                    <p>You can unsubscribe any time and you can delete all or some of your designs anytime.</p>
+                    <p><strong>We hope you will have fun with our designtool DUET.</strong></p>
+                </div>
+            </div>
+        </div>
+        <!-- change register -->
+        <div id="changeregistration" class="topic" style="display:none;">
+            <div class="w3-row">
+                <div class="w3-half" id="divform">
+                    <label class="llabel">Name:</label><input type="text" id="changeregistername" required /><br />
+                    <label class="llabel">Email:</label><input type="text" id="changeregisteremail" required /><br />
+                    <label class="llabel">Password:</label><input type="password" id="changeregisterpassword" required /><br /><br />
+                    <hr />
+                    <label class="llabel">Phone:</label><input type="text" id="changeregisterphone" /><br />
+                    <label class="llabel">Address:</label><input type="text" id="changeregisteraddress" /><br />
+                    <label class="llabel">Zipcode:</label><input type="text" id="changeregisterzipcode" /><br />
+                    <label class="llabel">City:</label><input type="text" id="changeregistercity" /><br />
+                    <label class="llabel">Country:</label><input type="text" id="changeregistercountry" /><br /><br />
+                    <button class="button" id="btnchangeregister" onclick="changeRegistrationMemberUI();">Change Registration</button>
+                </div>
+                <div class="w3-half divinfo">
+                    <h1>DUET Membership</h1>
+                    <p>This is the data we got from you, if you want to change it, you can do that with this form.</p>
+
+                    <p>We hope you like our designtool DUET.</p>
+                </div>
+            </div>
+        </div>
+        <div id="responseChangeRegistration" class="topic" style="display:none;">
+            <p>Thank you for changing your data.</p>
+        </div>
+        <!-- unsubscribe -->
+        <div id="unsubscribe" class="topic" style="display:none;">
+            <div class="w3-row">
+                <div class="w3-half" id="divform">
+                    <label class="llabel">Name:</label><input type="text" id="unsubscribename" required /><br />
+                    <label class="llabel">Email:</label><input type="text" id="unsubscribeemail" required /><br />
+                    <label class="llabel">Password:</label><input type="password" id="unsubscribepassword" required /><br />
+                    <label class="llabel">Remark:</label><textarea rows="4" id="unsubscriberemark"></textarea><br /><br />
+                    <button class="button" id="btnregister" onclick="unsubscribeMemberUI();">Unsubscribe</button>
+                </div>
+                <div class="w3-half" id="divregister">
+                    <h1>DUET Membership Unsubscribe</h1>
+                    <p>We think it is a pitty you end this membership! Let us know why?</p>
+                    <p>Help us to improve DUET and tell us why you want to end this Membership.</p>
+                    <p><b>Attention!</b>  If you unsubscribe you will lose all your designs on our server.</p>
+                </div>
+            </div>
+
+        </div>
+        <div id="responseUnsubscribe" class="topic" style="display:none;">
+            <p>We hope we will see you back one day...</p>
+        </div>
+        <!-- contact -->
+        <div id="contact" class="topic" style="display: none;">
+            <div class="w3-row">
+                <div class="w3-one">
+                    <p>The best team in the world.</p>
+                    <p><b>DUET, Is a coworkers project of two artist.</b>:</p>
+                    <p>
+                        We combine the tranditional artscrafts and the modern digatal art in DUET, het pattern designer. In DUET you can work together with us and develop your one patterns for textiles, wallpaper, prints, etc. First start designing, this tool
+                        will help you! It is easty to work with and the results can be fantastic! You can visit the ArtShop of Jolanta Izabela Pawlak at Haarlemmerstraat 100 in AMSTERDAM.
+                    </p>
+                </div>
+            </div>
+            <div class="w3-row">
+                <div class="w3-half">
+
+                    <img src="images/jolanta.jpg" alt="Jolanta Izabela Pawlak" style="width:100%">
+
+                    <h3>Jolanta Izabela Pawlak</h3>
+                    <p class="w3-opacity">Artist, sculture, jewelry, textiles</p>
+                    <p>
+                        Jolanta is an allround artist, creating sculptures, jewelry and some fine textiles on wich she screenprints her photo's. These graphics are inspired by the beautifull coral world she discovered in the ocean near Curacau. She lived
+                        there for eleven year and she dived a lot to her big passion under the water in the ocean and came back with beautifull photo's.<br /> More information: <a href="https://jolantaizabela.com">https://jolantaizabela.com</a>
+                    </p>
+                </div>
+                <div class="w3-half" style="padding-left:40px">
+                    <img src="images/ria.jpg" alt="Ria Stroes" style="width:80%;">
+                    <h3>Ria Stroes</h3>
+                    <p class="w3-opacity">Artist, creative coder</p>
+                    <p>
+                        Ria is a creative coder. She is interested in bringing her digital creations to the real world. She is working in designs and 3D-prints.
+                        <br /> More information: <a href="https://www.riastroes.nl">https://riastroes.nl</a>
+                    </p>
+                </div>
+            </div>
+            <div class="w3-row">
+                <div class="w3-half">
+                    <strong>Jolanta:</strong> <a href="mailto:jolantapawlak@gmail.com">jolantapawlak@gmail.com</a>
+                    <address>
+                        Haarlemmerstraat 100<br />
+                        1013 ES AMSTERDAM<br />
+                    </address>
+                </div>
+                <div class="w3-half" style="padding-left:40px">
+                    <strong>Ria:</strong> <a href="mailto:riastroes@gmail.com">riastroes@gmail.com</a>
+                </div>
+            </div>
+        </div>
+        <div id="errors"></div>
+        <!-- inspiration -->
+        <div id="panelinspiration">
+            <h1>Inspiration</h1>
+            <div id="divinspiration">
+
+                <div id="inspiration" class="w3-row w3-display-container" oncontextmenu="return false;">
+                    <img class="slides" src="images/img1.jpg" style="width:100%" oncontextmenu="return false;">
+                    <img class="slides" src="images/img2.jpg" style="width:100%" oncontextmenu="return false;">
+                    <img class="slides" src="images/img3.jpg" style="width:100%" oncontextmenu="return false;">
+                    <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-topmiddle" style="width: 100%">
+                        <div class="w3-left w3-hover-text-khaki" onclick="app.inspiration.showNext(-1)">&#10094;</div>
+                        <div class="w3-right w3-hover-text-khaki" onclick="app.inspiration.showNext(1)">&#10095;</div>
+                        <span class="w3-badge dots w3-border w3-transparent w3-hover-white" onclick="app.inspiration.showDot(1)"></span>
+                        <span class="w3-badge dots w3-border w3-transparent w3-hover-white" onclick="app.inspiration.showDot(2)"></span>
+                        <span class="w3-badge dots w3-border w3-transparent w3-hover-white" onclick="app.inspiration.showDot(3)"></span>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="footer">
+            <br/>&copy; 2018 - DUET
+        </div>
+    </div>
+    <script language="javascript">start();</script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>DUET Admin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/w3.css" />
+    <link rel="stylesheet" href="css/site.css" />
+   
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="js/app.js"></script>
+    <script src="js/site.js"></script>
+    <script src="js/proces.js"></script>
+    <script src="js/myorders.js"></script>
+    <script src="js/mydesigns.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/show.js"></script>
+    <script src="js/test.js"></script>
+
+</head>
+<body>
+    <!-- menu -->
+    <div class="w3-top menu">
+       
+            <div class="logo"><a href="admin.html?admin"><img src="images/logo.png" alt="logo" width="50" height="50" /><span class="title">DUET</span></a></div>
+            <div class="menuitem"><a href="index.html">Home</a></div>
+            <div class="menuitem"><a href="design.html">Designer</a></div>
+            <div class="menuitem"><a href="javascript:app.topic('divdesign')">Design</a></div>
+            <div class="menuitem"><a href="javascript:app.topic('divadmin')">Admin</a></div>
+            <div class="menuitem"><a href="javascript:app.topic('divmembers')">Members</a></div>
+            <div class="menuitem"><a href="javascript:app.topic('divdesigns')">Designs</a></div>
+            <div class="menuitem"><a href="javascript:app.topic('divorders')">Orders</a></div>
+        
+    </div>
+    <!-- end menu -->
+
+    <div id="root" class="container">
+        <div id="private" class="topic" style="display:block">
+            <div id="divuser"></div>
+            <p>This is a private area.</p>
+        </div>
+        <div id="divadmin" class="topic" style="display:none">
+            <h1>Administration</h1>
+
+            <h3>Create Inspiration in Database</h3>
+            <p>Use this function if you create a new database</p>
+            <button class="button" onclick="app.proces.seedInspiration()">Inspirations</button><br />
+
+            <h3>Inspiration image to database.</h3>
+            <p>Add an image to the database. Add the img file to the directory 'images'</p>
+            <label class="llabel">Title:</label><input class="button" type="text" id="inaddtitle" /><br />
+            <label class="llabel">Src:</label><input class="button" type="text" id="inaddsrc" />
+            <button class="button" onclick="app.proces.addInspiration()">Add</button><br />
+            <div id="result1"></div>
+
+            <h3>Delete Inspiration image to database.</h3>
+            <p>Delete an image in the database.</p>
+            <label class="llabel">Title:</label><input class="button" type="text" id="indeletetitle" />
+            <button class="button" onclick="app.proces.deleteInspiration()">Delete</button><br />
+
+            <h3>Settings</h3>
+            <label class="llabel">Root:</label><input class="button" type="text" id="inroot" />
+            <button class="button" onclick="sendAppSetting('inroot')">Set</button><br />
+
+            <label class="llabel">Max Design Width (pixels):</label><input class="button" type="text" id="inmaxdesignwidth" />
+            <button class="button" onclick="sendAppSetting('inmaxdesignwidth')">Set</button><br />
+
+            <label class="llabel">Max Design Height (pixels):</label><input class="button" type="text" id="inmaxdesignwidth" />
+            <button class="button" onclick="sendAppSetting('inmaxdesignheight')">Set</button><br />
+
+            <label class="llabel">Design DPI:</label><input class="button" type="text" id="inDPI" />
+            <button class="button" onclick="sendAppSetting('inDPI')">Set</button>
+            <label class="rlabel" id="resultsize"></label><br />
+
+            <label class="llabel">Procesdays:</label><input class="button" type="text" id="inprocesdays" />
+            <button class="button" onclick="sendAppSetting('inprocesdays')">Set</button><br />
+
+
+
+        </div>
+        <div id="divadmindesign" class=topic style="display:none">
+            
+            <label>id:</label><input id="inid" value="" />
+            <label>width:</label><input id="inwidth" value="" />
+            <label>height:</label><input id="inheight" value="" />
+            <button onclick="j_Admin_GetDesign()">Get Design</button><br />
+
+            <img id="testimg" src="" alt="" />
+        </div>
+        <div id="divmembers" class=topic style="display:none">
+            <h1>DUET Members</h1>
+            <div id="members"></div>
+        </div>
+        <div id="divdesigns" class=topic style="display: none">
+            <h1>DUET Designs</h1>
+            <div id="alldesigns"></div>
+        </div>
+        <div id="divorders" class=topic style="display:none">
+            <h1>DUET Orders</h1>
+            <div id="allorders"></div>
+        </div>
+        <div id="errors"></div>
+        <footer>
+            <p>&copy; 2018 - DUET</p>
+        </footer>
+
+    </div>
+
+    <div id="errors"></div>
+
+    <script language="javascript">adminstart();</script>
+</body>
+</html>
+

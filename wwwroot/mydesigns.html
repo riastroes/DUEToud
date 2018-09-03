@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>DUET My Designs</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/w3.css" />
+    <link rel="stylesheet" href="css/site.css" />
+
+    <link rel="stylesheet" href="css/input.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="js/app.js"></script>
+    <script src="js/site.js"></script>
+    <script src="js/mydesigns.js"></script>
+    <script src="js/show.js"></script>
+
+</head>
+<body onresize="document.location.reload();">
+    <!-- menu -->
+    <div class="w3-top"> </div>
+    <div class="w3-row menu">
+        <div id="divlogo" class="logo w3-col l2 m2"><a href="admin.html?admin"><img src="images/logo.png" alt="logo" width="50" height="50" /><span class="title">DUET</span></a></div>
+        <div class="w3-col l8 m8">
+            <div class="menuitem"><a href="index.html">Home</a></div>
+            <div class="menuitem"><a href="design.html">Designer</a></div>
+            <div class="menuitem"><a href="mydesign.html">My Design</a></div>
+            <div class="menuitem"><a href="myorders.html">My Orders</a></div>
+            <div class="menuitem"><a href="shared.html">Shared Designs</a></div>
+            <div class="menuitem"><a href="javascript:app.open('helpmydesigns')">Help</a></div>
+        </div>
+
+        <div class="w3-col l2 m2 w3-dropdown-hover menuitemright">
+            <div class="w3-dropdown-content">
+                <a href="index.html?register" id="member" class="w3-bar-item w3-button ">Register</a>
+                <a href="index.html?changeregistration" class="w3-bar-item w3-button">Change Registration</a>
+                <a href="index.html?unsubscribe" class="w3-bar-item w3-button">Unsubscribe</a>
+                <a href="index.html?contact" class="w3-bar-item w3-button">Contact</a>
+            </div>
+            <button>Membership</button>
+        </div>
+    </div>
+   
+    
+    <!-- end menu -->
+    <!-- show -->
+
+    <div id="root">
+
+        <div id="divmydesigns" class="w3-row">
+            <h1>My Designs</h1>
+            <div id="mydesigns" class="w3-col l6 m8">
+
+            </div>
+            <div class="w3-col l1 m1"><br /></div>
+            <div class="w3-col l5 m3">
+                <div id="divuser"></div>
+                <p>
+                    If you created one or more professional patterns, you will see a list of all your designs.<br/>
+                    You can click on a design if you like to use them. You can redesign them, share your best designs, show them as pattern, you can order fabric,samples or photo's or if you don't like them you can delete them.
+                </p>
+                <p>You will recieve likes, when other DUET-users click on your design. So we invite you to share your best designs.</p>
+                <p>
+                    This list is a result of your curiosity, interest and creativity. We hope you like the result and if you order fabric, samples or photo's of your designs, we will
+                    do our best to handle your order with care.
+                </p>
+                <p>And of course we hope to see you back many times and use our tool with great pleasure.</p>
+                <p>If anything is wrong or not as you wish, please let us know. You will find a comment box in the membership menu.</p>
+            </div>
+
+        </div>
+        <div id="footer"><br />&copy; 2018 - DUET</div>
+        <div id="infodesign">
+            <div id="info"></div>
+            <button onclick="closeInfoDesign()">Ok</button>
+        </div>
+        <div id="helpmydesigns" class="help" style="display:none">
+            <i id="lefthelp" onclick="app.left('helpmydesigns')" class="material-icons" style="font-size: 32px">keyboard_arrow_left</i>
+            <i id="righthelp" onclick="app.right('helpmydesigns')" class="material-icons" style="font-size: 32px">keyboard_arrow_right</i>
+            <i id="closehelp" onclick="app.close('helpmydesigns')" class="material-icons" style="font-size: 32px">close</i>
+            <h3>My Designs</h3>
+            <p>You created one or more a professional patterns. This is what you can do with your designs.</p>
+            <p><strong>Info</strong>: read info about your design.</p>
+            <p><strong>Show</strong>: show your design as a repeated pattern, horizontal and vertical. This is not the actual size of your pattern in reality it is a lot bigger.</p>
+
+            <p>
+                <strong>Check</strong> check your design before you start to order. Here you can see your design in it's actual size.<br />
+                Some details can be lost now, because you will see your design much smaller then the actual size of 48x48 cm.
+                You see one patternpart, also check the show button, then you can see a repeated pattern.<br />
+                Although we added a watermark to your this design. In the finalresult we will use a file without a watermark ofcourse.
+
+            </p>
+            <p><strong>Design</strong>: design will load your design in the designer so you can change it or you can create a variation with a different background color for example.</p>
+            <p><strong>Delete</strong>: delete your design.
+            <p><strong>Order</strong>: if your design is ok! You can start order. Your design will come to live on fabric. You can order a test sample (48x48 cm) or 1 meter or more by 1.40m. </p>
+            <p>We allso can offer you your design as a photo. See for the options in the order form.</p>
+        </div>
+    </div>
+        <div>
+            <div id="errors"></div>
+            
+        </div>
+        <script language="javascript">showstart();
+initMyDesigns();</script>
+</body>
+</html>

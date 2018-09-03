@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <StartupObject>DUET.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="wwwroot\models\**" />
+    <Compile Remove="wwwroot\saved\**" />
+    <Content Remove="wwwroot\models\**" />
+    <Content Remove="wwwroot\saved\**" />
+    <EmbeddedResource Remove="wwwroot\models\**" />
+    <EmbeddedResource Remove="wwwroot\saved\**" />
+    <None Remove="wwwroot\models\**" />
+    <None Remove="wwwroot\saved\**" />
+    <None Remove="DUETLOCAL.db-journal" />
+    <Content Remove="wwwroot\adesign.html" />
+    <Content Remove="wwwroot\css\page.css" />
+    <Content Remove="wwwroot\test.html" />
+    <Compile Remove="Shared\MemoryDesign.cs" />
+    <Compile Remove="Shared\WebText.cs" />
+    <Compile Remove="Controlers\WebTextController.cs" />
+    <Content Remove="wwwroot\js\page-old.js" />
+    <Compile Remove="Controlers\ShowController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\images\logo.jpg" />
+    <Content Remove="wwwroot\showOUD.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="DUETSERVER.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DUET.sln" />
+    <None Include="wwwroot\adesign.html" />
+    <None Include="wwwroot\test.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="System.Drawing.Common" Version="4.5.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Models\DUETContext.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+</Project>

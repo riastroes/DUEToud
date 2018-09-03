@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>DUET Shared</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/w3.css" />
+    <link rel="stylesheet" href="css/site.css" />
+
+    <link rel="stylesheet" href="css/input.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="js/app.js"></script>
+    <script src="js/site.js"></script>
+    <script src="js/show.js"></script>
+    <script src="js/mydesigns.js"></script>
+
+
+</head>
+<body onresize="document.location.reload();">
+    <!-- menu -->
+    <div class="w3-top"> </div>
+        <div class="w3-row menu">
+            <div class="logo w3-col l2 m2"><a href="admin.html?admin"><img src="images/logo.png" alt="logo" width="50" height="50" /><span class="title">DUET</span></a></div>
+            <div class="w3-col l8 m8">
+                <div class="menuitem"><a href="index.html">Home</a></div>
+                <div class="menuitem"><a href="design.html">Designer</a></div>
+                <div class="menuitem"><a href="mydesigns.html">My Designs</a></div>
+                <div class="menuitem"><a href="myorders.html">My Orders</a></div>
+                <div class="menuitem"><a href="javascript:app.open('helpshared')">Help</a></div>
+            </div>
+
+            <div class="w3-col l2 m2 w3-dropdown-hover menuitemright">
+                <div class="w3-dropdown-content">
+                    <a href="index.html?register" id="member" class="w3-bar-item w3-button ">Register</a>
+                    <a href="index.html?changeregistration" class="w3-bar-item w3-button">Change Registration</a>
+                    <a href="index.html?unsubscribe" class="w3-bar-item w3-button">Unsubscribe</a>
+                    <a href="index.html?contact" class="w3-bar-item w3-button">Contact</a>
+                </div>
+                <button>Membership</button>
+            </div>
+        </div>
+   
+    <!-- end menu -->
+    <!-- show -->
+
+    <div id="divshareddesigns">
+        <h1>Shared Designs</h1>
+        <div id="divuser"></div>
+        <div id="shareddesigns">
+        </div>
+
+        <h3>Thank you for sharing designers!</h3>
+        <div id="helpshared" class="help" style="display:none">
+            <i id="lefthelp" onclick="app.left('helpshared')" class="material-icons" style="font-size: 32px">keyboard_arrow_left</i>
+            <i id="righthelp" onclick="app.right('helpshared')" class="material-icons" style="font-size: 32px">keyboard_arrow_right</i>
+            <i id="closehelp" onclick="app.close('helpshared')" class="material-icons" style="font-size: 32px">close</i>
+            <h3>Shared Designs</h3>
+        </div>
+        <div id="errors"></div>
+        <footer>
+            <p>&copy; 2018 - DUET</p>
+        </footer>
+    </div>
+    <script language="javascript">
+    sharedstart();
+        initShared();</script>
+</body>
+</html>

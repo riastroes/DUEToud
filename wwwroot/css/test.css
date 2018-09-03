@@ -1,0 +1,9 @@
+﻿label{
+    display:inline-block;
+    position:relative;
+    width:120px;
+}
+input {
+    position: relative;
+    width: 120px;
+}

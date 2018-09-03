@@ -1,0 +1,21 @@
+﻿/****************** inspiration **********/
+#divinspiration {
+    background-color: black;
+    padding: 0px;
+    margin: 0px;
+}
+
+    #divinspiration .slides {
+        display: none
+    }
+
+    #divinspiration .w3-left, .w3-right, .w3-badge {
+        cursor: pointer
+    }
+
+    #divinspiration .w3-badge {
+        height: 13px;
+        width: 13px;
+        padding: 0
+    }
+/****************** end carousel **********/
