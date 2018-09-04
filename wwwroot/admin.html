@@ -41,41 +41,36 @@
         </div>
         <div id="divadmin" class="topic" style="display:none">
             <h1>Administration</h1>
-
             <h3>Create Inspiration in Database</h3>
             <p>Use this function if you create a new database</p>
             <button class="button" onclick="app.proces.seedInspiration()">Inspirations</button><br />
-
             <h3>Inspiration image to database.</h3>
             <p>Add an image to the database. Add the img file to the directory 'images'</p>
             <label class="llabel">Title:</label><input class="button" type="text" id="inaddtitle" /><br />
             <label class="llabel">Src:</label><input class="button" type="text" id="inaddsrc" />
             <button class="button" onclick="app.proces.addInspiration()">Add</button><br />
             <div id="result1"></div>
-
             <h3>Delete Inspiration image to database.</h3>
             <p>Delete an image in the database.</p>
             <label class="llabel">Title:</label><input class="button" type="text" id="indeletetitle" />
             <button class="button" onclick="app.proces.deleteInspiration()">Delete</button><br />
-
             <h3>Settings</h3>
             <label class="llabel">Root:</label><input class="button" type="text" id="inroot" />
             <button class="button" onclick="sendAppSetting('inroot')">Set</button><br />
-
+            <label class="llabel">Design Width (pixels):</label><input class="button" type="text" id="indesignwidth" />
+            <button class="button" onclick="sendAppSetting('indesignwidth')">Set</button><br />
+            <label class="llabel">Design Height (pixels):</label><input class="button" type="text" id="indesignheight" />
+            <button class="button" onclick="sendAppSetting('indesignheight')">Set</button>
+            <label class="rlabel" id="resultsize"></label><br />
             <label class="llabel">Max Design Width (pixels):</label><input class="button" type="text" id="inmaxdesignwidth" />
             <button class="button" onclick="sendAppSetting('inmaxdesignwidth')">Set</button><br />
-
-            <label class="llabel">Max Design Height (pixels):</label><input class="button" type="text" id="inmaxdesignwidth" />
+            <label class="llabel">Max Design Height (pixels):</label><input class="button" type="text" id="inmaxdesignheight" />
             <button class="button" onclick="sendAppSetting('inmaxdesignheight')">Set</button><br />
-
             <label class="llabel">Design DPI:</label><input class="button" type="text" id="inDPI" />
             <button class="button" onclick="sendAppSetting('inDPI')">Set</button>
-            <label class="rlabel" id="resultsize"></label><br />
-
+            <label class="rlabel" id="resultmaxsize"></label><br />
             <label class="llabel">Procesdays:</label><input class="button" type="text" id="inprocesdays" />
             <button class="button" onclick="sendAppSetting('inprocesdays')">Set</button><br />
-
-
 
         </div>
         <div id="divadmindesign" class=topic style="display:none">

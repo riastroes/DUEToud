@@ -36,16 +36,16 @@ Design.prototype.init = function(id) {
     this.ctx = this.canvas.getContext("2d");
     this.ctxbg = this.canvasbg.getContext("2d");
     this.ctxtop = this.canvastop.getContext("2d");
-    this.width = app.designwidth;
-    this.height = app.designheight;
+    this.width = app.DESIGNWIDTH;
+    this.height = app.DESIGNHEIGHT;
     this.DPI = app.DPI;
     this.viewwidth = this.canvas.width;
     this.viewheight = this.canvas.height;
     this.bgcolor = new RGB(255,255,255);
 
 
-    this.initDesignSize();
-    this.setupRulers();
+    this.initDesignSize(app.DESIGNWIDTH, app.DESIGNHEIGHT);
+   
 
 
 
@@ -54,35 +54,41 @@ Design.prototype.init = function(id) {
      //   });
 
 }
-Design.prototype.initDesignSize = function () {
+Design.prototype.initDesignSize = function (WIDTH, HEIGHT) {
     var indesignwidth = document.getElementById("indesignwidth");
     var indesignheight = document.getElementById("indesignheight");
     var lbldesignsize = document.getElementById("lbldesignsize");
-   
+
+    indesignwidth.value = (WIDTH / app.DPI) * 2.54;
+    indesignheight.value = (HEIGHT / app.DPI) * 2.54;
 
     indesignwidth.max = (app.MAXDESIGNWIDTH / app.DPI) * 2.54;
     indesignheight.max =(app.MAXDESIGNHEIGHT / app.DPI) * 2.54;
 
-    app.designwidth = Math.ceil(parseInt(indesignwidth.value) * (app.DPI / 2.54));
-    app.designheight = Math.ceil(parseInt(indesignheight.value) * (app.DPI / 2.54));
+    //app.designwidth = Math.ceil(parseInt(indesignwidth.value) * (app.DPI / 2.54));
+    //app.designheight = Math.ceil(parseInt(indesignheight.value) * (app.DPI / 2.54));
 
-    if (this.width != app.designwidth) {
+    if (this.width != WIDTH) {
         indesignheight.value = indesignwidth.value;
-        app.designheight = app.designwidth;
+        app.DESIGNHEIGHT = app.DESIGNWIDTH;
     }
     else{
         indesignwidth.value = indesignheight.value;
-        app.designwidth = app.designheight;
+        app.DESIGNWIDTH = app.DESIGNHEIGHT;
     }
 
-    this.width = app.designwidth;
-    this.height = app.designheight;
+    this.width = app.DESIGNWIDTH;
+    this.height = app.DESIGNHEIGHT;
 
     lbldesignsize.innerHTML = indesignwidth.value + " x " + indesignheight.value + " cm"
+
+    this.setupRulers();
 }
 Design.prototype.ChangeDesignSize = function () {
-    this.initDesignSize();
-    this.setupRulers();
+    var indesignwidth = document.getElementById("indesignwidth");
+    var indesignheight = document.getElementById("indesignheight");
+    this.initDesignSize(indesignwidth.value, indesignheight.value);
+   
     
 }
 Design.prototype.setupRulers = function() {

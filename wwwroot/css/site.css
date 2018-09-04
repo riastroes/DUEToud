@@ -333,7 +333,7 @@ body {
     
     position: relative;
     background-color: lightgray;
-    padding: 0px;
+    padding: 20px;
     -webkit-transition: all 2000ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transition: all 2000ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
@@ -359,6 +359,28 @@ h3 button {
 #inspirationlock {
     padding-top: 10px;
 }
+/****************** inspiration **********/
+#divinspiration {
+    background-color: black;
+    padding: 0px;
+    margin: 0px;
+}
+
+    #divinspiration .slides {
+        display: none
+    }
+
+    #divinspiration .w3-left, .w3-right, .w3-badge {
+        cursor: pointer
+    }
+
+    #divinspiration .w3-badge {
+        height: 13px;
+        width: 13px;
+        padding: 0
+    }
+/****************** end carousel **********/
+
 /*************stamptype ********/
 #divstamptype {
     width: 100%;

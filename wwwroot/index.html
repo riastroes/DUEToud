@@ -7,11 +7,7 @@
     <link rel="stylesheet" href="css/w3.css" />
     <link rel="stylesheet" href="css/input.css" />
     <link rel="stylesheet" href="css/site.css" />
-  
-    <link rel="stylesheet" href="css/inspiration.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <script src="js/app.js"></script>
+     <script src="js/app.js"></script>
     <script src="js/site.js"></script>
     <script src="js/proces.js"></script>
 
@@ -65,7 +61,7 @@
                     <p id="info">If you are new @ DUET,<br /> first goto Membership (top-right-corner) and register.</p>
                     <label class="llabel">Email:</label><input type="text" id="loginemail" required /><br />
                     <label class="llabel">Password:</label><input type="password" id="loginpassword" required /><br /><br />
-                    <button class="button" id="btnlogin" onclick="login();">Login</button>
+                    <button type="submit" class="button" id="btnlogin" onclick="login();">Login</button>
                     <div class="error" id="resultlogin"></div>
                 </div>
             </div>
@@ -209,8 +205,8 @@
                     <img class="slides" src="images/img2.jpg" style="width:100%" oncontextmenu="return false;">
                     <img class="slides" src="images/img3.jpg" style="width:100%" oncontextmenu="return false;">
                     <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-topmiddle" style="width: 100%">
-                        <div class="w3-left w3-hover-text-khaki" onclick="app.inspiration.showNext(-1)">&#10094;</div>
-                        <div class="w3-right w3-hover-text-khaki" onclick="app.inspiration.showNext(1)">&#10095;</div>
+                        <div class="w3-left w3-hover-text-khaki" onclick="app.inspiration.showNext(-1)"><img src="images/Google/previous.svg" width="32" height="32" alt="previous" /></div>
+                        <div class="w3-right w3-hover-text-khaki" onclick="app.inspiration.showNext(1)"><img src="images/Google/next.svg" width="32" height="32" alt="next" /></div>
                         <span class="w3-badge dots w3-border w3-transparent w3-hover-white" onclick="app.inspiration.showDot(1)"></span>
                         <span class="w3-badge dots w3-border w3-transparent w3-hover-white" onclick="app.inspiration.showDot(2)"></span>
                         <span class="w3-badge dots w3-border w3-transparent w3-hover-white" onclick="app.inspiration.showDot(3)"></span>

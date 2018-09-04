@@ -612,105 +612,24 @@ namespace DUET.Shared
         }
         public string CopyDesign(DUETContext db, int id)
         {
-            try
+           
+            var member = this as Member;
+            if (member == null)
             {
-
-
-                var member = this as Member;
-                if (member == null)
+                return "Error: No Member.";
+            }
+            else
+            {
+                if (CurrentDesign == null)
                 {
-                    return "Error: No Member.";
+                    return "Error: design unknown";
                 }
                 else
                 {
-                    if (CurrentDesign == null)
-                    {
-                        return "Error: design unknown";
-                    }
-                    else
-                    {
-                        
-                        var adesign = db.Designs.SingleOrDefault(d => d.Id == id && (d.MemberId == member.Id || d.Shared == true));
-                        if (adesign == null)
-                        {
-                            return "Error: No design.";
-                        }
-                        else
-                        {
-
-                            ///change
-                            //design.Processes = new List<Proces>();
-                            //design.DPI = adesign.DPI;
-                            //design.Width = adesign.Width;
-                            //design.Height = adesign.Height;
-                            //design.Red = adesign.Red;
-                            //design.Green = adesign.Green;
-                            //design.Blue = adesign.Blue;
-
-                            //design.Saved = false;
-
-                            //db.Designs.Update(design);
-                            //db.SaveChanges();
-                           
-                            //var processes = db.Processes.Where(p => p.designID == id).ToArray();
-                            //foreach (var proces in processes)
-                            //{
-                            //    var newproces = new Proces();
-                            //    newproces.Index = proces.Index;
-                            //    newproces.X = proces.X;
-                            //    newproces.Y = proces.Y;
-        
-
-
-                            //    var stamp = db.Stamps.SingleOrDefault(s => s.ID == proces.stampID);
-                            //    var newstamp = new Stamp();
-
-                            //        newstamp.inspirationID = stamp.inspirationID;
-                            //        newstamp.Width = stamp.Width;
-                            //        newstamp.Height = stamp.Height;
-
-                            //        newstamp.X = stamp.X;
-                            //        newstamp.Y = stamp.Y;
-                            //        newstamp.InspirationWidth = stamp.InspirationWidth;
-                            //        newstamp.InspirationHeight = stamp.InspirationHeight;
-
-
-                            //        newstamp.Shape = stamp.Shape;
-                            //        newstamp.Type = stamp.Type;
-                            //        newstamp.Scale = stamp.Scale;
-                            //        newstamp.Rotate = stamp.Rotate;
-                            //        newstamp.Red = stamp.Red;
-                            //        newstamp.Green = stamp.Green;
-                            //        newstamp.Blue = stamp.Blue;
-
-                            //        newstamp.designID = design.ID;
-
-                            //        db.Stamps.Add(newstamp);
-                            //        db.SaveChanges();
-
-
-                            //    newproces.stampID = newstamp.ID;
-                            //    newproces.designID = design.ID;
-                            //    db.Processes.Add(newproces);
-                            //    design.Processes.Add(newproces);
-
-                            //}
-
-
-                            //db.SaveChanges();
-                            
-                            //return processes.Length.ToString();
-                        }
-                        return "";
-                    }
-                   // return "";
+                    return CurrentDesign.CopyDesign(db, id);
                 }
-                //return "";
             }
-            catch(Exception exception){
-                return "Error: " + exception.Message;
-            }
-
+                      
         }
 
         //orders

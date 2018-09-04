@@ -151,8 +151,10 @@ Proces.prototype.xy = function() {
 
     }
 }
-Proces.prototype.sendNewDesign = function(id) {
-
+Proces.prototype.sendNewDesign = function (id) {
+    app.design = new Design();
+    app.design.init();
+    app.proces.init();
     var data = new Object();
     data.GUID = this.GUID;
     data.design = app.design.getData();
@@ -180,9 +182,6 @@ Proces.prototype.sendNewDesign = function(id) {
                 var mysettings = document.getElementById("mysettings");
                 mysettings.innerHTML = "Settings for " + app.design.name +"-" + data.Id;
 
-
-                app.design.init();
-                app.proces.init();
                 app.design.setBackgroundColor(255,255,255);
                 app.proces.sendGetStamp();
 
@@ -193,9 +192,6 @@ Proces.prototype.sendNewDesign = function(id) {
                     var id = ids[1];
                     moveSettings();
 
-
-                    app.design.setBackgroundColor(data.Red, data.Green, data.Blue);
-                    app.palette.add(new RGB(data.Red, data.Green, data.Blue));
                     app.proces.sendCopyDesign(id);
 
                    
@@ -419,12 +415,12 @@ Proces.prototype.sendDeleteDesign = function(id) {
 }
 Proces.prototype.sendCopyDesign = function (id) {
 
-    
+   
     var data = new Object();
     data.GUID = this.GUID;
     data.design = app.design.getData();
-    data.id = id;
     data.func = "copydesign";
+    data.copyid = id;
 
     var json = JSON.stringify(data);
 
@@ -434,7 +430,9 @@ Proces.prototype.sendCopyDesign = function (id) {
 
         if (request.status >= 200 && request.status < 400) {
             if (this.response != "" && this.response.indexOf("Error") < 0) {
-                app.proces.from = parseInt(this.response);
+                var data = JSON.parse(this.response);
+                app.proces.from = data.UsedStampings;
+                app.design.initDesignSize(data.Width, data.Height);
                 
                 var img = document.createElement("img");
                 img.width = app.design.viewwidth;
@@ -447,6 +445,9 @@ Proces.prototype.sendCopyDesign = function (id) {
                     stopalert();
                 }
                 img.src = "/DUET?id=" + id + "&w=" + app.design.width + "&h=" + app.design.height;
+
+                app.design.setBackgroundColor(data.Red, data.Green, data.Blue);
+                app.palette.add(new RGB(data.Red, data.Green, data.Blue));
 
                 var errors = document.getElementById("errors");
                 errors.innerHTML = this.response;

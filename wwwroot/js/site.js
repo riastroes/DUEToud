@@ -30,7 +30,7 @@ function designstart(){
     
     app = new App("DUET");
     autoLogin(app.GUID);
-    app.getSettings();
+   
     var url = location.href;
     history.pushState(null, null, url);
     window.onpopstate = function () {
@@ -50,6 +50,7 @@ function designstart(){
 function adesignstart(){
     app = new App("DUET");
     autoLogin(app.GUID);
+   
     var url = location.href;
     history.pushState(null, null, url);
     window.onpopstate = function () {

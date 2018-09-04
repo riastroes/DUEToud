@@ -57,9 +57,20 @@ namespace DUET.Models
 
             MemberId = Member.Id;
             Name = "DUET";
-            Width = _design.width;
-            Height = _design.height; 
+            if(_design.width == null)
+            {
+                Width = App.DESIGNWIDTH;
+                Height = App.DESIGNHEIGHT;
+               
+            }
+            else
+            {
+                Width = _design.width;
+                Height = _design.height;
+                
+            }
             DPI = App.DPI;
+
             ViewWidth = _design.viewwidth;
             ViewHeight = _design.viewheight;
             
@@ -210,6 +221,89 @@ namespace DUET.Models
                 return "Error in Design Proces: " + exception.Message;
             }
         }
+        public string CopyDesign(DUETContext db, int designid)
+        {
+            try
+            {
+                if (Saved == false)
+                {
+                    var copydesign = db.Designs.Where(d => d.Id == designid)
+                                        .Include(d => d.Member)
+                                        .Include(d => d.Processes)
+                                        .ThenInclude(p => p.Stamp).First();
+
+                    if (copydesign == null)
+                    {
+                        return "Error in Design Copy: No design found to copy.";
+                    }
+                    else
+                    {
+
+                        Width = copydesign.Width;
+                        Height = copydesign.Height;
+
+                        Red = copydesign.Red;
+                        Green = copydesign.Green;
+                        Blue = copydesign.Blue;
+
+                        Processes = new List<Proces>();
+                        Stamps = new List<Stamp>();
+                        //db.Designs.Update(this);
+                        var laststampid = -1;
+
+                        for (var i = 0; i < copydesign.Processes.Count; i++)
+                        {
+                            Proces proces = new Proces();
+                            proces.DesignId = Id;
+                            proces.Index = copydesign.Processes[i].Index;
+                            proces.X = copydesign.Processes[i].X;
+                            proces.Y = copydesign.Processes[i].Y;
+
+                            if (copydesign.Processes[i].StampId != laststampid) { 
+                                var stamp = new Stamp();
+                                stamp.DesignId = Id;
+                                stamp.InspirationId = copydesign.Processes[i].Stamp.InspirationId;
+                                stamp.InspirationWidth = copydesign.Processes[i].Stamp.InspirationWidth;
+                                stamp.InspirationHeight = copydesign.Processes[i].Stamp.InspirationHeight;
+                                stamp.Width = copydesign.Processes[i].Stamp.Width;
+                                stamp.Height = copydesign.Processes[i].Stamp.Height;
+                                stamp.X = copydesign.Processes[i].Stamp.X;
+                                stamp.Y = copydesign.Processes[i].Stamp.Y;
+                                stamp.Type = copydesign.Processes[i].Stamp.Type;
+                                stamp.Shape = copydesign.Processes[i].Stamp.Shape;
+                                stamp.Scale = copydesign.Processes[i].Stamp.Scale;
+                                stamp.Rotate = copydesign.Processes[i].Stamp.Rotate;
+                                stamp.Red = copydesign.Processes[i].Stamp.Red;
+                                stamp.Green = copydesign.Processes[i].Stamp.Green;
+                                stamp.Blue = copydesign.Processes[i].Stamp.Blue;
+                                stamp.Used = true;
+
+                                Stamps.Add(stamp);
+                                db.Stamps.Add(stamp);
+                                db.SaveChanges(); // deze moet anders heb je geen stampId in je proces
+
+                                laststampid = copydesign.Processes[i].StampId;
+                            }
+                            proces.StampId = laststampid;
+                            db.Processes.Add(proces);
+                        }
+
+                        db.SaveChanges();
+                    }
+                    return GetDesignData(db, designid);
+                }
+                else
+                {
+                    return "Error in Design Copy: Your design is already saved. First create a new Design.";
+                }
+            }
+            catch(Exception exception)
+            {
+                return "Error in Design Copy: " + exception.Message;
+            }
+        }
+
+               
         public static string DeleteDesign(DUETContext db, int designid)
         {
             try

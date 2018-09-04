@@ -13,8 +13,10 @@ function App(name) {
     this.MAXDESIGNHEIGHT;
     this.DPI;
     this.PROCESDAYS;
-    this.designwidth;
-    this.designheight;
+    this.DESIGNWIDTH;
+    this.DESIGNHEIGHT;
+
+    this.getSettings();
     
 }
 App.prototype.getOrCreateGUIDInLocalStorage = function() {
@@ -90,7 +92,7 @@ App.prototype.getSettings = function() {
     var json = JSON.stringify(data);
 
     var request = new XMLHttpRequest();
-    request.open('POST', app.localhost + "api/member/" + json, true);
+    request.open('POST', this.localhost + "api/member/" + json, true);
     request.onload = function () {
 
         if (request.status >= 200 && request.status < 400) {
@@ -103,20 +105,29 @@ App.prototype.getSettings = function() {
                     var inmaxdesignheight = document.getElementById("inmaxdesignheight");
                     var inDPI = document.getElementById("inDPI");
                     var inprocesdays = document.getElementById("inprocesdays");
+                    var indesignwidth = document.getElementById("indesignwidth");
+                    var indesignheight = document.getElementById("indesignheight");
                 
                     inroot.value = data[0];
                     inmaxdesignwidth.value = data[1];
                     inmaxdesignheight.value = data[2];
                     inDPI.value = data[3];
                     inprocesdays.value = data[4];
+                    indesignwidth.value = data[5];
+                    indesignheight.value = data[6];
                     var resultsize = document.getElementById("resultsize");
-                    resultsize.innerHTML = (inmaxdesignwidth.value / (inDPI.value / 2.54)) + " cm";
+                    resultsize.innerHTML = (indesignwidth.value / (inDPI.value / 2.54)) + " cm";
+                    var resultmaxsize = document.getElementById("resultmaxsize");
+                    resultmaxsize.innerHTML = (inmaxdesignwidth.value / (inDPI.value / 2.54)) + " cm";
                 }
                 app.ROOT = data[0];
+                
                 app.MAXDESIGNWIDTH = parseInt(data[1]);
                 app.MAXDESIGNHEIGHT = parseInt(data[2]);
                 app.DPI = parseInt(data[3]);
-                app.PROCESDAYS =  parseInt(data[4]);
+                app.PROCESDAYS = parseInt(data[4]);
+                app.DESIGNWIDTH = parseInt(data[5]);
+                app.DESIGNHEIGHT = parseInt(data[6]);
             }
             else {
                 var errors = document.getElementById("errors");

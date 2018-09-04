@@ -74,6 +74,8 @@ namespace DUET
             App.MAXDESIGNWIDTH = 6000;
             App.MAXDESIGNHEIGHT = 6000;
             App.PROCESDAYS = 10;
+            App.DESIGNWIDTH = 2000;
+            App.DESIGNHEIGHT = 2000;
 
             if (env.IsDevelopment())
             {

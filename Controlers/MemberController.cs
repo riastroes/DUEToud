@@ -75,7 +75,7 @@ namespace DUET.Controllers
             
             else if (data.func == "getsettings")
             {
-                string str = App.ROOT + "," + App.MAXDESIGNWIDTH + "," + App.MAXDESIGNHEIGHT + "," + App.DPI +"," + App.PROCESDAYS;
+                string str = App.ROOT + "," + App.MAXDESIGNWIDTH + "," + App.MAXDESIGNHEIGHT + "," + App.DPI +"," + App.PROCESDAYS + "," + App.DESIGNWIDTH + "," + App.DESIGNHEIGHT;
 
                 return str;
             }
@@ -92,7 +92,15 @@ namespace DUET.Controllers
                 {
                     App.MAXDESIGNWIDTH = data.value;
                 }
-                else if (data.field == "inmaxdesignwidth")
+                else if (data.field == "inmaxdesignheight")
+                {
+                    App.MAXDESIGNHEIGHT = data.value;
+                }
+                else if (data.field == "indesignwidth")
+                {
+                    App.MAXDESIGNWIDTH = data.value;
+                }
+                else if (data.field == "indesignheight")
                 {
                     App.MAXDESIGNHEIGHT = data.value;
                 }

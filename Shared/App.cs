@@ -17,8 +17,10 @@ namespace DUET
         public static int MAXDESIGNWIDTH { get; set; }
         public static int MAXDESIGNHEIGHT { get; set; }
         public static int DPI { get; set; }
-        
-       
+        public static int DESIGNWIDTH { get; set; }
+        public static int DESIGNHEIGHT { get; set; }
+
+
         public  static int userInToScreen(int _in)
         {
             return _in * 118;

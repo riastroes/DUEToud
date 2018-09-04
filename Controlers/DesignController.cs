@@ -54,7 +54,7 @@ namespace DUET.Controllers
                 using (StreamReader sr = new StreamReader(Request.Body))
                 {
                     dynamic data1 = JObject.Parse(sr.ReadToEnd());
-                    result = visitor.Proces(_context,  data1.proces);
+                    result = visitor.Proces(_context, data1.proces);
                     if (result == "")
                     {
                         result = visitor.CreateStamp(_context, data1.stamp, data1.inspiration);
@@ -78,9 +78,15 @@ namespace DUET.Controllers
             //}
             else if (data.func == "copydesign")
             {
-
-                int id = data.id;
-                return visitor.CopyDesign(_context, id);
+                string result = visitor.NewDesign(_context, data.design);
+                if (!result.StartsWith("Error")) {
+                    int designid = data.copyid;
+                    return visitor.CopyDesign(_context, designid);
+                }
+                else
+                {
+                    return result;
+                }
                
             }
 

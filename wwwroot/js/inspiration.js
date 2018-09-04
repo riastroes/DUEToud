@@ -46,12 +46,12 @@ Inspiration.prototype.init = function(showdots){
 Inspiration.prototype.clickLock = function() {
     if (this.isLocked) {
         app.timer = setTimeout(app.inspiration.carousel, 4000); 
-        this.lock.innerHTML = "lock_open";
+        this.lock.src = "images/google/lock_open.svg";
         this.isLocked = false;
     }
     else {
         clearTimeout(app.timer);
-        this.lock.innerHTML = "lock";
+        this.lock.src = "images/google/lock_closed.svg";
         this.isLocked = true;
     }
 }
