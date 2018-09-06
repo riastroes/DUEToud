@@ -72,7 +72,7 @@ function initDesignerUI() {
     panelsettings.style.width = kw + "px";
     panelinspiration.style.width = gw + "px";
 
-    inspiration.style.width = gw - 40 + "px";
+    inspiration.style.width = gw - 20 + "px";
     //root.style.width = w + "px";
 
     paneldesign.style.left ="0px";
@@ -121,11 +121,11 @@ function initCanvasUI(){
     var canvasbg = document.getElementById("canvasbackground");
     var canvastop = document.getElementById("canvastop");
 
-    var marge = 40;
+    var marge = 20;
     var w= divdesigner.offsetWidth;
     var kw = parseInt(w / 4);
     var gw = w - (kw + (2* marge));
-    var rest = gw % 48;
+    var rest = gw % 28;
     gw -= rest;
 
 

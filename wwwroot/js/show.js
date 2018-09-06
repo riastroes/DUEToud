@@ -125,7 +125,7 @@ function showDesign(id) {
 
 }
 function getDesign(id){
-    document.location.href="mydesign.html?id=" + id;
+    document.location.href="adesign.html?id=" + id;
 }
 function loadDesign(id) {
     document.location.href = "design.html?id=" + id;

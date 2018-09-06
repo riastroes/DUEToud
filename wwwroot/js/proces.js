@@ -350,7 +350,7 @@ Proces.prototype.sendXY = function() {
 Proces.prototype.sendDeleteProcesses = function () {
     var data = new Object();
     data.GUID = this.GUID;
-    data.designid = id;
+    data.designid = app.design.id;
 
     data.func = "deleteprocesses";
 

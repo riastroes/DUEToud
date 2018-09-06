@@ -45,51 +45,30 @@ Design.prototype.init = function(id) {
 
 
     this.initDesignSize(app.DESIGNWIDTH, app.DESIGNHEIGHT);
-   
-
-
-
-    //this.canvas.addEventListener('click', function (event) {
-     //   app.design.click(event.x + 30, event.y);
-     //   });
+ 
 
 }
 Design.prototype.initDesignSize = function (WIDTH, HEIGHT) {
-    var indesignwidth = document.getElementById("indesignwidth");
-    var indesignheight = document.getElementById("indesignheight");
+    var indesignsize = document.getElementById("indesignsize");
     var lbldesignsize = document.getElementById("lbldesignsize");
 
-    indesignwidth.value = (WIDTH / app.DPI) * 2.54;
-    indesignheight.value = (HEIGHT / app.DPI) * 2.54;
+    indesignsize.value = (WIDTH / app.DPI) * 2.54;
+    indesignsize.max = (app.MAXDESIGNWIDTH / app.DPI) * 2.54;
+    
+    this.width = WIDTH;
+    this.height = HEIGHT;
+    app.DESIGNWIDTH = WIDTH;
+    app.DESIGNHEIGHT = HEIGHT;
 
-    indesignwidth.max = (app.MAXDESIGNWIDTH / app.DPI) * 2.54;
-    indesignheight.max =(app.MAXDESIGNHEIGHT / app.DPI) * 2.54;
-
-    //app.designwidth = Math.ceil(parseInt(indesignwidth.value) * (app.DPI / 2.54));
-    //app.designheight = Math.ceil(parseInt(indesignheight.value) * (app.DPI / 2.54));
-
-    if (this.width != WIDTH) {
-        indesignheight.value = indesignwidth.value;
-        app.DESIGNHEIGHT = app.DESIGNWIDTH;
-    }
-    else{
-        indesignwidth.value = indesignheight.value;
-        app.DESIGNWIDTH = app.DESIGNHEIGHT;
-    }
-
-    this.width = app.DESIGNWIDTH;
-    this.height = app.DESIGNHEIGHT;
-
-    lbldesignsize.innerHTML = indesignwidth.value + " x " + indesignheight.value + " cm"
+    lbldesignsize.innerHTML = indesignsize.value + " x " + indesignsize.value + " cm"
 
     this.setupRulers();
 }
 Design.prototype.ChangeDesignSize = function () {
-    var indesignwidth = document.getElementById("indesignwidth");
-    var indesignheight = document.getElementById("indesignheight");
-    this.initDesignSize(indesignwidth.value, indesignheight.value);
-   
+    var indesignsize = document.getElementById("indesignsize");
     
+    var w = indesignsize.value * (app.DPI / 2.54);
+    this.initDesignSize(w,w);
 }
 Design.prototype.setupRulers = function() {
     var horctx = this.horruler.getContext("2d");
@@ -105,8 +84,8 @@ Design.prototype.setupRulers = function() {
 }
 Design.prototype.drawRuler = function (ctx, type) {
 
-    var maxwidth = app.designwidth / (app.DPI / 2.54);
-    var maxheight = app.designheight / (app.DPI / 2.54);
+    var maxwidth = app.DESIGNWIDTH / (app.DPI / 2.54);
+    var maxheight = app.DESIGNHEIGHT / (app.DPI / 2.54);
     
     if(type == "horizontal"){
         var w = Math.floor(this.horruler.width / maxwidth);
@@ -194,8 +173,8 @@ Design.prototype.showRulerLines = function(on){
     var ctx = this.verruler.getContext("2d");
     ctx.lineWidth = 0.2;
     if (on) {
-        var maxwidth = app.designwidth / (app.DPI / 2.54);
-        var maxheight = app.designheight / (app.DPI / 2.54);
+        var maxwidth = app.DESIGNWIDTH / (app.DPI / 2.54);
+        var maxheight = app.DESIGNHEIGHT / (app.DPI / 2.54);
 
         var h = Math.floor(this.verruler.height / maxheight);
 

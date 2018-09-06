@@ -314,8 +314,9 @@ body {
 }
 #paneldesign {
     position: absolute;
-    background-color:lightgray;
+    background-color: lightgray;
     padding: 20px;
+    padding-right: 0px;
     -webkit-transition: all 2000ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transition: all 2000ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -324,16 +325,17 @@ body {
     position: absolute;
     background-color: lightgray;
     padding: 20px;
-    //top:34px;
+
     -webkit-transition: all 2000ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transition: all 2000ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 #panelinspiration {
     
-    position: relative;
+    position: absolute;
     background-color: lightgray;
     padding: 20px;
+    padding-left: 0px;
     -webkit-transition: all 2000ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transition: all 2000ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
@@ -496,12 +498,10 @@ mydesigntitle{
 #divdesignsize{
     text-align:right;
 }
-#indesignwidth {
-    width: 15%;
+#indesignsize {
+    width: 20%;
 }
-#indesignheight {
-    width: 15%;
-}
+
 #divtitle .rlabel{
     margin-left:10px;
 }
@@ -548,6 +548,7 @@ mydesigntitle{
     color: white;
     font-size: 18px;
     margin-top: 10px;
+    padding: 10px;
 }
 
 #divbuttons .button50 {
@@ -558,7 +559,7 @@ mydesigntitle{
     color: white;
     font-size: 18px;
     padding: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 #divbuttons .button30 {

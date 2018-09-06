@@ -78,7 +78,7 @@
             <div id="paneldesign">
                 <div id="divtitle" class="w3-row">
                     <div class="w3-third"><a id="top"></a><span id="mydesigntitle">My Design:</span></div>
-                    <div class="w3-twothird" id="divdesignsize"><label class="llabel">Design Size:</label><input id="indesignwidth" type="range" min="1" max="50" step="1" value="20" onchange="app.design.ChangeDesignSize()" /> x <input id="indesignheight" type="range" min="1" max="50" step="1" value="20" onchange="app.design.ChangeDesignSize()" /><label id="lbldesignsize" class="rlabel">20 x 20 cm</label></div>
+                    <div class="w3-twothird" id="divdesignsize"><label class="llabel">Design Size:</label><input id="indesignsize" type="range" min="1" max="50" step="1" value="20" onchange="app.design.ChangeDesignSize()" /><label id="lbldesignsize" class="rlabel">20 x 20 cm</label></div>
                 </div>
 
                 <button class="button" id="btnrulers" onclick="app.design.rulers();">On</button>
@@ -151,7 +151,7 @@
             </div>
             <!-- inspiration -->
             <div id="panelinspiration">
-                <h2>Inspiration <img src="images/google/lock-open.svg" alt="lock-open" id="inspirationlock"  onclick="app.inspiration.clickLock()"/></h2>
+                <h3 style="text-align:right">Inspiration <img src="images/google/lock-open.svg" alt="lock-open" id="inspirationlock"  onclick="app.inspiration.clickLock()"/></h3>
                 <div id="divinspiration">
                     <div id="inspiration" class="w3-row w3-display-container">
                         <img id="img1" alt="GDansk" class="slides" src="images/img1.jpg" style="width:100%;height:100%;" onclick="app.inspiration.xy(1)" oncontextmenu="return false">

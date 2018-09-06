@@ -251,38 +251,38 @@ namespace DUET.Models
                         //db.Designs.Update(this);
                         var laststampid = -1;
 
-                        for (var i = 0; i < copydesign.Processes.Count; i++)
+                        foreach(var copyProces in copydesign.Processes)
                         {
                             Proces proces = new Proces();
                             proces.DesignId = Id;
-                            proces.Index = copydesign.Processes[i].Index;
-                            proces.X = copydesign.Processes[i].X;
-                            proces.Y = copydesign.Processes[i].Y;
+                            proces.Index = copyProces.Index;
+                            proces.X = copyProces.X;
+                            proces.Y = copyProces.Y;
 
-                            if (copydesign.Processes[i].StampId != laststampid) { 
+                            if (copyProces.StampId != laststampid) { 
                                 var stamp = new Stamp();
                                 stamp.DesignId = Id;
-                                stamp.InspirationId = copydesign.Processes[i].Stamp.InspirationId;
-                                stamp.InspirationWidth = copydesign.Processes[i].Stamp.InspirationWidth;
-                                stamp.InspirationHeight = copydesign.Processes[i].Stamp.InspirationHeight;
-                                stamp.Width = copydesign.Processes[i].Stamp.Width;
-                                stamp.Height = copydesign.Processes[i].Stamp.Height;
-                                stamp.X = copydesign.Processes[i].Stamp.X;
-                                stamp.Y = copydesign.Processes[i].Stamp.Y;
-                                stamp.Type = copydesign.Processes[i].Stamp.Type;
-                                stamp.Shape = copydesign.Processes[i].Stamp.Shape;
-                                stamp.Scale = copydesign.Processes[i].Stamp.Scale;
-                                stamp.Rotate = copydesign.Processes[i].Stamp.Rotate;
-                                stamp.Red = copydesign.Processes[i].Stamp.Red;
-                                stamp.Green = copydesign.Processes[i].Stamp.Green;
-                                stamp.Blue = copydesign.Processes[i].Stamp.Blue;
+                                stamp.InspirationId = copyProces.Stamp.InspirationId;
+                                stamp.InspirationWidth = copyProces.Stamp.InspirationWidth;
+                                stamp.InspirationHeight = copyProces.Stamp.InspirationHeight;
+                                stamp.Width = copyProces.Stamp.Width;
+                                stamp.Height = copyProces.Stamp.Height;
+                                stamp.X = copyProces.Stamp.X;
+                                stamp.Y = copyProces.Stamp.Y;
+                                stamp.Type = copyProces.Stamp.Type;
+                                stamp.Shape = copyProces.Stamp.Shape;
+                                stamp.Scale = copyProces.Stamp.Scale;
+                                stamp.Rotate = copyProces.Stamp.Rotate;
+                                stamp.Red = copyProces.Stamp.Red;
+                                stamp.Green = copyProces.Stamp.Green;
+                                stamp.Blue = copyProces.Stamp.Blue;
                                 stamp.Used = true;
 
                                 Stamps.Add(stamp);
                                 db.Stamps.Add(stamp);
                                 db.SaveChanges(); // deze moet anders heb je geen stampId in je proces
 
-                                laststampid = copydesign.Processes[i].StampId;
+                                laststampid = copyProces.StampId;
                             }
                             proces.StampId = laststampid;
                             db.Processes.Add(proces);

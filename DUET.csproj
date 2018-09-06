@@ -13,7 +13,6 @@
     <None Remove="wwwroot\models\**" />
     <None Remove="wwwroot\saved\**" />
     <None Remove="DUETLOCAL.db-journal" />
-    <Content Remove="wwwroot\adesign.html" />
     <Content Remove="wwwroot\css\page.css" />
     <Content Remove="wwwroot\test.html" />
     <Compile Remove="Shared\MemoryDesign.cs" />
@@ -34,8 +33,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="DUET.sln" />
-    <None Include="wwwroot\adesign.html" />
-    <None Include="wwwroot\test.html" />
+    <None Include="wwwroot\test.html">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
@@ -45,5 +45,37 @@
     <Compile Update="Models\DUETContext.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="wwwroot\adesign.html">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\admin.html">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\check.html">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\design.html">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\index.html">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\mydesigns.html">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\myorders.html">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\order.html">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\shared.html">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\showpattern.html">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>
